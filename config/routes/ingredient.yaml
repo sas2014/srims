@@ -1,0 +1,27 @@
+get_ingredient_list:
+  path: /list
+  methods: POST
+  controller: App\Controller\IngredientController::getIngredientList
+  format: 'json'
+
+add_ingredient:
+  path: /add
+  methods: POST
+  controller: App\Controller\IngredientController::addIngredient
+  format: 'json'
+
+edit_ingredient:
+  path: /{id}
+  methods: PUT
+  controller: App\Controller\IngredientController::editIngredient
+  format: 'json'
+  requirements:
+    id: '\d+'
+
+delete_ingredient:
+  path: /{id}
+  methods: DELETE
+  controller: App\Controller\IngredientController::deleteIngredient
+  format: 'json'
+  requirements:
+    id: '\d+'

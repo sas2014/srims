@@ -1,0 +1,14 @@
+App\DTO\Request\ListDTO:
+  properties:
+    query:
+      - Type:
+          type: string
+          message: !php/const App\Messages\AppMessageConstants::TYPE_INVALID
+    limit:
+      - Type:
+          type: numeric
+          message: !php/const App\Messages\AppMessageConstants::TYPE_INVALID
+    offset:
+      - Type:
+          type: numeric
+          message: !php/const App\Messages\AppMessageConstants::TYPE_INVALID

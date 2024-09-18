@@ -1,0 +1,50 @@
+App\DTO\Request\Ingredient\IngredientDTO:
+  properties:
+    name:
+      - NotBlank:
+          message: !php/const App\Messages\AppMessageConstants::EMPTY_NAME_ERROR
+      - Type:
+          type: string
+          message: !php/const App\Messages\AppMessageConstants::TYPE_NAME_ERROR
+    description:
+      - NotBlank:
+          message: !php/const App\Messages\AppMessageConstants::EMPTY_DESCRIPTION_ERROR
+      - Type:
+          type: string
+          message: !php/const App\Messages\AppMessageConstants::TYPE_DESCRIPTION_ERROR
+    quantity:
+      - NotBlank:
+          message: !php/const App\Messages\AppMessageConstants::EMPTY_QUANTITY_ERROR
+      - Type:
+          type: integer
+          message: !php/const App\Messages\AppMessageConstants::TYPE_QUANTITY_ERROR
+
+App\DTO\Request\Ingredient\IngredientEditDTO:
+  properties:
+    name:
+      - NotBlank:
+          message: !php/const App\Messages\AppMessageConstants::EMPTY_NAME_ERROR
+          allowNull: true
+          groups: [edit]
+      - Type:
+          type: string
+          message: !php/const App\Messages\AppMessageConstants::TYPE_NAME_ERROR
+          groups: [edit]
+    description:
+      - NotBlank:
+          message: !php/const App\Messages\AppMessageConstants::EMPTY_DESCRIPTION_ERROR
+          allowNull: true
+          groups: [edit]
+      - Type:
+          type: string
+          message: !php/const App\Messages\AppMessageConstants::TYPE_DESCRIPTION_ERROR
+          groups: [edit]
+    quantity:
+      - NotBlank:
+          message: !php/const App\Messages\AppMessageConstants::EMPTY_QUANTITY_ERROR
+          allowNull: true
+          groups: [edit]
+      - Type:
+          type: integer
+          message: !php/const App\Messages\AppMessageConstants::TYPE_QUANTITY_ERROR
+          groups: [edit]

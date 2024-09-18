@@ -1,0 +1,8 @@
+ingredient:
+  resource: 'routes/ingredient.yaml'
+  prefix: /ingredient
+
+login_route:
+  path: /login
+  methods: POST
+  controller: App\Controller\AuthenticationController::login
