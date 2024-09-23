@@ -1,10 +1,10 @@
 <?php
 
-namespace App\DTO\Response\Ingredient;
+namespace App\DTO\Response\Recipe;
 
 use App\Lib\JsonSerializableTrait;
 
-class IngredientDTO extends \App\DTO\Request\Ingredient\IngredientDTO implements \JsonSerializable
+class RecipeDTO extends \App\DTO\Request\Recipe\RecipeDTO implements \JsonSerializable
 {
     use JsonSerializableTrait;
 
@@ -22,7 +22,7 @@ class IngredientDTO extends \App\DTO\Request\Ingredient\IngredientDTO implements
      * @param mixed $id
      * @return static
      */
-    public function setId($id): static
+    public function setId($id)
     {
         $this->id = $id;
         return $this;

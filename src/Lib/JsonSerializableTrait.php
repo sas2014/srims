@@ -2,9 +2,6 @@
 
 namespace App\Lib;
 
-/**
- * JsonSerializableTrait
- */
 trait JsonSerializableTrait
 {
     /**

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\IngredientRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
@@ -23,6 +25,17 @@ class Ingredient
 
     #[ORM\Column]
     private ?int $quantity = null;
+
+    /**
+     * @var Collection<int, Recipe>
+     */
+    #[ORM\ManyToMany(targetEntity: Recipe::class, mappedBy: 'ingredients')]
+    private Collection $recipes;
+
+    public function __construct()
+    {
+        $this->recipes = new ArrayCollection();
+    }
 
     /**
      * @return int|null
@@ -85,6 +98,41 @@ class Ingredient
     public function setQuantity(?int $quantity): static
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recipe>
+     */
+    public function getRecipes(): Collection
+    {
+        return $this->recipes;
+    }
+
+    /**
+     * @param Recipe $recipe
+     * @return $this
+     */
+    public function addRecipe(Recipe $recipe): static
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes->add($recipe);
+            $recipe->addIngredient($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param Recipe $recipe
+     * @return $this
+     */
+    public function removeRecipe(Recipe $recipe): static
+    {
+        if ($this->recipes->removeElement($recipe)) {
+            $recipe->removeIngredient($this);
+        }
 
         return $this;
     }

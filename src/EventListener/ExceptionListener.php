@@ -7,11 +7,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
-use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\Serializer\Exception\PartialDenormalizationException;
-use Symfony\Component\Serializer\Normalizer\ProblemNormalizer;
 
 class ExceptionListener implements EventSubscriberInterface
 {
@@ -59,6 +56,12 @@ class ExceptionListener implements EventSubscriberInterface
                 );
                 break;
             default:
+                $event->setResponse(
+                    new JsonResponse(
+                        ['message' => $exception->getMessage()],
+                        method_exists($exception, 'getStatusCode') ? $exception->getStatusCode() : Response::HTTP_INTERNAL_SERVER_ERROR
+                    )
+                );
         }
     }
 

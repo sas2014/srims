@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+:host {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 12px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.4);
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  width: 40%;
+
+}
+
+.login-box input {
+  margin: 5px 0;
+  width: 100%;
+  outline: none;
+  background-color: #e7e7e7;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+.login-box button {
+  background-color: rgba(47, 112, 198, 0.74);
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 15px;
+  width: 100%;
+}
+
+
+.box-title h1 {
+  font-size: 26px;
+  font-weight: bold;
+}

@@ -1,0 +1,27 @@
+get_recipe_list:
+  path: /list
+  methods: POST
+  controller: App\Controller\RecipeController::getRecipeList
+  format: 'json'
+
+add_recipe:
+  path: /add
+  methods: POST
+  controller: App\Controller\RecipeController::addRecipe
+  format: 'json'
+
+edit_recipe:
+  path: /{id}
+  methods: PUT
+  controller: App\Controller\RecipeController::editRecipe
+  format: 'json'
+  requirements:
+    id: '\d+'
+
+delete_recipe:
+  path: /{id}
+  methods: DELETE
+  controller: App\Controller\RecipeController::deleteRecipe
+  format: 'json'
+  requirements:
+    id: '\d+'

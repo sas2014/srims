@@ -24,6 +24,10 @@ doctrine:
                 alias: App
         controller_resolver:
             auto_mapping: false
+        dql:
+            string_functions:
+                JSON_OBJECT: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonObject
+                GROUP_CONCAT: DoctrineExtensions\Query\Mysql\GroupConcat
 
 when@test:
     doctrine:

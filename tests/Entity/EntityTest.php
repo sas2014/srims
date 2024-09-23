@@ -2,6 +2,8 @@
 
 namespace App\Tests\Entity;
 
+use App\Entity\Ingredient;
+use App\Entity\Recipe;
 use App\Entity\Token;
 use App\Entity\User;
 use PHPUnit\Framework\TestCase;
@@ -28,6 +30,8 @@ class EntityTest extends TestCase
             'DateTimeInterface' => new \DateTime(),
             'App\Entity\User' => (new User()),
             'App\Entity\Token' => (new Token()),
+            'App\Entity\Recipe' => (new Recipe()),
+            'App\Entity\Ingredient' => (new Ingredient()),
         ];
     }
 

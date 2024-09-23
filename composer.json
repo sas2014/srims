@@ -7,6 +7,7 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "beberlei/doctrineextensions": "^1.5",
         "doctrine/dbal": "^3",
         "doctrine/doctrine-bundle": "^2.13",
         "doctrine/doctrine-migrations-bundle": "^3.3",
@@ -15,6 +16,7 @@
         "nelmio/cors-bundle": "^2.5",
         "phpdocumentor/reflection-docblock": "^5.4",
         "phpstan/phpdoc-parser": "^1.30",
+        "scienta/doctrine-json-functions": "^6.1",
         "symfony/asset": "7.1.*",
         "symfony/console": "7.1.*",
         "symfony/dotenv": "7.1.*",
@@ -80,6 +82,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.6",
+        "phpspec/prophecy-phpunit": "^2.2",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "7.1.*",
         "symfony/css-selector": "7.1.*",

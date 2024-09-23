@@ -2,10 +2,6 @@
 
 namespace App\DTO\Request;
 
-use App\Lib\Std\Object\ArrayableInterface;
-use App\Lib\Std\Object\ToArrayTrait;
-use App\Lib\DtoMapperBundle\Annotation\MappingMeta\DestinationClass;
-
 class ListDTO
 {
     /**

@@ -65,6 +65,11 @@ class IngredientController extends AbstractController
             throw $this->createNotFoundException();
         }
 
+        if($ingredient->getRecipes()->count())
+        {
+            throw $this->createAccessDeniedException(AppMessageConstants::CURRENT_INGREDIENT_IS_USED_ERROR);
+        }
+
         $this->entityManager->remove($ingredient);
         $this->entityManager->flush();
 

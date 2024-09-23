@@ -1,0 +1,29 @@
+App\DTO\Request\Recipe\RecipeDTO:
+  properties:
+    name:
+      - NotBlank:
+          message: !php/const App\Messages\AppMessageConstants::EMPTY_NAME_ERROR
+      - Type:
+          type: string
+          message: !php/const App\Messages\AppMessageConstants::TYPE_NAME_ERROR
+    description:
+      - NotBlank:
+          message: !php/const App\Messages\AppMessageConstants::EMPTY_DESCRIPTION_ERROR
+      - Type:
+          type: string
+          message: !php/const App\Messages\AppMessageConstants::TYPE_DESCRIPTION_ERROR
+    ingredients:
+      - NotBlank:
+          message: !php/const App\Messages\AppMessageConstants::EMPTY_INGREDIENTS_ERROR
+      - Type:
+          type: array
+          message: !php/const App\Messages\AppMessageConstants::TYPE_INGREDIENTS_ERROR
+      - All:
+          - NotBlank:
+              message: !php/const App\Messages\AppMessageConstants::EMPTY_INGREDIENTS_ERROR
+          - Type:
+              type: integer
+              message: !php/const App\Messages\AppMessageConstants::TYPE_INGREDIENTS_ERROR
+      - App\Validator\Constraints\Recipe\IngredientExist: ~
+
+App\DTO\Request\Recipe\RecipeEditDTO: ~

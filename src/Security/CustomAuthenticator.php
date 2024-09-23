@@ -49,7 +49,6 @@ class CustomAuthenticator extends AbstractAuthenticator
     {
         $apiToken = $request->headers->get(self::AUTHORIZATION_HEADER);
         if (null === $apiToken) {
-            //throw new \Exception(AppMessageConstants::API_TOKEN_INVALID, Response::HTTP_UNAUTHORIZED);
             throw new CustomUserMessageAuthenticationException('', [AppMessageConstants::NO_API_TOKEN_PROVIDED]);
         }
 
@@ -60,7 +59,7 @@ class CustomAuthenticator extends AbstractAuthenticator
         }
 
         if (!$this->tokenRepository->isTokenValid($apiToken)) {
-            throw new CustomUserMessageAuthenticationException('', [AppMessageConstants::API_TOKEN_EXPIRED]) ;
+            throw new CustomUserMessageAuthenticationException('', [AppMessageConstants::API_TOKEN_EXPIRED]);
         }
 
         $loggedUser = $apiToken->getUser();

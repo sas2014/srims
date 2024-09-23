@@ -2,6 +2,10 @@ ingredient:
   resource: 'routes/ingredient.yaml'
   prefix: /ingredient
 
+recipe:
+  resource: 'routes/recipe.yaml'
+  prefix: /recipe
+
 login_route:
   path: /login
   methods: POST
